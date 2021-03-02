@@ -1,9 +1,59 @@
 package com.cinemaGhar.dao.impl;
 
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.cinemaGhar.dao.api.MoviesDao;
+import com.cinemaGhar.dao.entity.Movies;
 
 
 public class MoviesDaoImpl implements MoviesDao
 {
+	@Autowired
+	SessionFactory sessionFactory;
+	
+	protected Session getSession() {
+		return (Session)sessionFactory.getCurrentSession();
+	
+	}
+
+	@Override
+	public boolean insert(Movies movie) 
+	{
+		try
+		{
+			getSession().saveOrUpdate(movie);
+			System.out.println(movie.getId()+" "+ movie.getTitle());
+			return true;
+		} 
+		catch (Exception e)
+		{
+			System.out.println("Exception(ADD): " + e);
+			return false;
+
+		}
+	}
+
+	@Override
+	public List<Movies> getAllMovies() 
+	{
+		Query query = getSession().createQuery("select m from Movies m ");
+		List<Movies> movieList=query.list();
+		return movieList;
+	}
+
+	@Override
+	public List<Movies> getMovieById(String movieId) 
+	{
+		Query query = getSession().createQuery("From Movies m where id:=id");
+		query.setParameter("id",movieId);
+		List<Movies> movieList=query.list();
+		return movieList;
+		
+	}
 	
 }
