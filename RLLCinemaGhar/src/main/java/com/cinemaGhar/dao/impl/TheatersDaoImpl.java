@@ -4,10 +4,14 @@ import java.util.List;
 
 import org.hibernate.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.cinemaGhar.dao.api.TheatersDao;
 import com.cinemaGhar.dao.entity.Theaters;
 
+@Repository
+@EnableTransactionManagement
 public class TheatersDaoImpl implements TheatersDao
 {
 	@Autowired

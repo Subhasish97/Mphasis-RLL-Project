@@ -1,15 +1,13 @@
 package com.cinemaGhar.service;
 
-import javax.persistence.Entity;
+import java.util.List;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+import com.cinemaGhar.dao.entity.Admin;
 
-@Entity
-public class AdminService
-{
-	
-	
+public interface AdminService {
+ 
+	public Boolean insert(Admin admin);
+	public List<Admin> getAdminById(String id);
+	public List<Admin> getAdminByEmail(String email);
+
 }

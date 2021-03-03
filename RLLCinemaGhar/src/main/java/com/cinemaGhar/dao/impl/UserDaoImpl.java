@@ -4,10 +4,14 @@ import java.util.List;
 
 import org.hibernate.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.cinemaGhar.dao.api.UserDao;
 import com.cinemaGhar.dao.entity.User;
 
+@Repository
+@EnableTransactionManagement
 public class UserDaoImpl implements UserDao
 {
 	@Autowired
@@ -21,18 +25,10 @@ public class UserDaoImpl implements UserDao
 	@Override
 	public boolean insert(User user)
 	{
-		try {
-
-			getSession().saveOrUpdate(user);
-			System.out.println("admin " + user.getName()+" stored in the DB !!!");
-			return true;
-
-		} catch (Exception e) {
-
-			System.out.println("Exception(ADD): " + e);
-			return false;
-
-		}
+		getSession().saveOrUpdate(user);
+		System.out.println("admin " + user.getName()+" stored in the DB !!!");
+		return true;
+		
 	}
 
 	@Override

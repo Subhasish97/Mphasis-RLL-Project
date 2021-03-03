@@ -17,7 +17,7 @@ public class User{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="USER_ID")
 	@NotNull
-	private long id;
+	private String id;
 		
 	@Id
 	@Column(name="USER_EMAIL")
@@ -45,11 +45,11 @@ public class User{
 		// TODO Auto-generated constructor stub
 	}
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

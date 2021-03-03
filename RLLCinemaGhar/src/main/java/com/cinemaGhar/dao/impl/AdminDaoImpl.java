@@ -26,18 +26,10 @@ public class AdminDaoImpl implements AdminDao
 	@Override
 	public boolean insert(Admin admin) 
 	{
-		try {
-
-			getSession().saveOrUpdate(admin);
-			System.out.println("admin " + admin.getName()+" stored in the DB !!!");
-			return true;
-
-		} catch (Exception e) {
-
-			System.out.println("Exception(ADD): " + e);
-			return false;
-
-		}
+		
+		getSession().saveOrUpdate(admin);
+		System.out.println("admin " + admin.getName()+" stored in the DB !!!");
+		return true;
 	}
 
 	@Override
@@ -49,6 +41,19 @@ public class AdminDaoImpl implements AdminDao
 		List<Admin> adminList=query.list();
 		if(adminList.isEmpty()) {
 			System.out.println("Admin not Found!!");
+		}
+		return adminList;
+	}
+
+	@Override
+	public List<Admin> getAdminByEmail(String emailId) 
+	{
+		Query query = getSession().createQuery("From Admin where email =:email");
+		query.setParameter("email", emailId);
+		
+		List<Admin> adminList=query.list();
+		if(adminList.isEmpty()) {
+			System.out.println("Admin not Found by EMAIL!!");
 		}
 		return adminList;
 	}

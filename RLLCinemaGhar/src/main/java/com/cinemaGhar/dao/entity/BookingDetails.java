@@ -17,7 +17,7 @@ public class BookingDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="BOOK_ID")
 	@NotNull
-	private Long id;
+	private String id;
 	
 	@Column(name="BOOK_DATE")
 	private String date;
@@ -57,11 +57,11 @@ public class BookingDetails {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

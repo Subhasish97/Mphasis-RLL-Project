@@ -34,6 +34,18 @@ public class Admin{
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+
+	public Admin(String id, String name, String gender, String email, String pwd, int enabled) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.gender = gender;
+		this.email = email;
+		this.pwd = pwd;
+		this.enabled = enabled;
+	}
+
 
 	public String getId() {
 		return id;

@@ -6,11 +6,14 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.cinemaGhar.dao.api.MoviesDao;
 import com.cinemaGhar.dao.entity.Movies;
 
-
+@Repository
+@EnableTransactionManagement
 public class MoviesDaoImpl implements MoviesDao
 {
 	@Autowired

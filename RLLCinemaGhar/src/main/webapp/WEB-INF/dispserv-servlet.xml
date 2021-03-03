@@ -40,6 +40,7 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>com.cinemaGhar.dao.entity.Admin</value>
+				<value>com.cinemaGhar.dao.entity.User</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -55,6 +56,14 @@
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	
+	<bean id="admin" class="com.cinemaGhar.dao.entity.Admin"/>
+	<bean id="adminDao" class="com.cinemaGhar.dao.impl.AdminDaoImpl"/>
+	<bean id="adminService" class="com.cinemaGhar.service.AdminServiceImpl"/>
+	
+	<bean id="user" class="com.cinemaGhar.dao.entity.User"/>
+	<bean id="userDao" class="com.cinemaGhar.dao.impl.UserDaoImpl"/>
+	<bean id="userService" class="com.cinemaGhar.service.UserServiceImpl"/>
 
 
 

@@ -4,12 +4,23 @@ import java.util.List;
 
 import org.hibernate.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.cinemaGhar.dao.api.BookingDetailsDao;
 import com.cinemaGhar.dao.entity.BookingDetails;
 
+@Repository
+@EnableTransactionManagement
 public class BookingDetailsDaoImpl implements BookingDetailsDao 
 {
+	
+	public BookingDetailsDaoImpl() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Autowired
 	SessionFactory sessionFactory;
 

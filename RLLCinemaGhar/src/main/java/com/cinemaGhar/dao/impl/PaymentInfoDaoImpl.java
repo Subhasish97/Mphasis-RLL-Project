@@ -4,10 +4,14 @@ import java.util.List;
 
 import org.hibernate.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.cinemaGhar.dao.api.PaymentInfoDao;
 import com.cinemaGhar.dao.entity.PaymentInfo;
 
+@Repository
+@EnableTransactionManagement
 public class PaymentInfoDaoImpl implements PaymentInfoDao
 {
 	@Autowired

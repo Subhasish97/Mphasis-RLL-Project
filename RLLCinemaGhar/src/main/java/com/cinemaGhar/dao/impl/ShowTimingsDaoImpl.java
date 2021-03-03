@@ -6,10 +6,14 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.cinemaGhar.dao.api.ShowTimingsDao;
 import com.cinemaGhar.dao.entity.ShowTimings;
 
+@Repository
+@EnableTransactionManagement
 public class ShowTimingsDaoImpl implements ShowTimingsDao
 {
 	@Autowired
