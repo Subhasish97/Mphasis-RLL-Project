@@ -8,7 +8,7 @@ public interface PaymentInfoService {
 	
 	public Boolean insert(PaymentInfo payment);
 	public List<PaymentInfo> getAllpaymentInfo();
-	public List<PaymentInfo> getAllpaymentInfoById(String id);
+	public List<PaymentInfo> getAllpaymentInfoById(Long id);
 
 
 

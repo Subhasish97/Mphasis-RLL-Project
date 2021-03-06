@@ -2,6 +2,8 @@ package com.cinemaGhar.dao.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -11,9 +13,10 @@ import javax.validation.constraints.NotNull;
 public class Admin{
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name="ADMIN_ID")
 	@NotNull
-	private String id;
+	private Long id;
 	
 	@Column(name="ADMIN_NAME")
 	private String name;
@@ -36,7 +39,7 @@ public class Admin{
 	}
 	
 
-	public Admin(String id, String name, String gender, String email, String pwd, int enabled) {
+	public Admin(long id, String name, String gender, String email, String pwd, int enabled) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -47,11 +50,11 @@ public class Admin{
 	}
 
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

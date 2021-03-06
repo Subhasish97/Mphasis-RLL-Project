@@ -2,9 +2,12 @@ package com.cinemaGhar.dao.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -13,13 +16,13 @@ import javax.validation.constraints.NotNull;
 public class Seats{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name="SEAT_ID")
 	@NotNull
 	private Long id;
 	
-	@Column(name="THEATER_KEY")
-	private long theaterKey;
+	@Column(name="SEAT_NUMBER")
+	private String seatNumber;
 	
 	@Column(name="TIME")
 	private String time;
@@ -40,12 +43,12 @@ public class Seats{
 		this.id = id;
 	}
 
-	public long getTheaterKey() {
-		return theaterKey;
+	public String getSeatNumber() {
+		return seatNumber;
 	}
 
-	public void setTheaterKey(long theaterKey) {
-		this.theaterKey = theaterKey;
+	public void setSeatNumber(String seatNumber) {
+		this.seatNumber = seatNumber;
 	}
 
 	public String getTime() {
@@ -66,8 +69,8 @@ public class Seats{
 
 	@Override
 	public String toString() {
-		return "Seats [id=" + id + ", theaterKey=" + theaterKey + ", time=" + time + ", status=" + status + "]";
+		return "Seats [id=" + id + ", seatNumber=" + seatNumber + ", time=" + time + ", status=" + status + "]";
 	}
-
+	
 	
 }

@@ -26,17 +26,9 @@ public class TheatersDaoImpl implements TheatersDao
 	@Override
 	public boolean insert(Theaters theater) 
 	{
-		try 
-		{
-			getSession().saveOrUpdate(theater);
-			System.out.println(theater.getId()+" "+ theater.getName());
-			return true;
-		}
-		catch (Exception e)
-		{
-			System.out.println("Exception(ADD): " + e);
-			return false;
-		}
+		getSession().saveOrUpdate(theater);
+		System.out.println(theater.getId()+" "+ theater.getName());
+		return true;
 	}
 
 	@Override
@@ -49,7 +41,7 @@ public class TheatersDaoImpl implements TheatersDao
 	}
 
 	@Override
-	public List<Theaters> getTheaterById(String theaterId) 
+	public List<Theaters> getTheaterById(Long theaterId) 
 	{
 		Query query = getSession().createQuery("From Theaters th where id:=id");
 		query.setParameter("id",theaterId);

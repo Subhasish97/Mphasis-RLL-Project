@@ -9,6 +9,8 @@ public interface BookingDetailsDao
 	public boolean insert(BookingDetails bd);
 	public List<BookingDetails> getAllBookingDetails();
 	public List<BookingDetails> getAllBookingByUser(String email);
-	public List<BookingDetails> getBookingDetailById(String bookingDetailId);
+	public List<BookingDetails> getBookingDetailById(Long bookingDetailId);
+	public List<Long> getIds();
+	public List<String> getTicket();
 	
 }

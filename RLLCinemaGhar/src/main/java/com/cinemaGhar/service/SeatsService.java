@@ -8,6 +8,6 @@ public interface SeatsService {
 	
 	public Boolean insert(Seats seat);
 	public List<Seats> getAllSeats();
-	public List<Seats> getSeatById(String seatId);
+	public List<Seats> getSeatById(Long seatId);
 
 }

@@ -27,18 +27,9 @@ public class MoviesDaoImpl implements MoviesDao
 	@Override
 	public boolean insert(Movies movie) 
 	{
-		try
-		{
-			getSession().saveOrUpdate(movie);
-			System.out.println(movie.getId()+" "+ movie.getTitle());
-			return true;
-		} 
-		catch (Exception e)
-		{
-			System.out.println("Exception(ADD): " + e);
-			return false;
-
-		}
+		getSession().saveOrUpdate(movie);
+		System.out.println(movie.getId()+" "+ movie.getTitle());
+		return true;
 	}
 
 	@Override
@@ -50,7 +41,7 @@ public class MoviesDaoImpl implements MoviesDao
 	}
 
 	@Override
-	public List<Movies> getMovieById(String movieId) 
+	public List<Movies> getMovieById(Long movieId) 
 	{
 		Query query = getSession().createQuery("From Movies m where id:=id");
 		query.setParameter("id",movieId);

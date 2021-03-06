@@ -8,7 +8,7 @@ public interface ShowTimingsDao
 {
 	public boolean insert(ShowTimings show);
 	public List<ShowTimings> getAllShowTimings();
-	public List<ShowTimings> getShowById(String showId);
+	public List<ShowTimings> getShowById(Long showId);
 
 	
 }

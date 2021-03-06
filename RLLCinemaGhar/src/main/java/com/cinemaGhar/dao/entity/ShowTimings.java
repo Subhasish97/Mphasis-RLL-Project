@@ -2,9 +2,12 @@ package com.cinemaGhar.dao.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -20,9 +23,7 @@ public class ShowTimings {
 	
 	@Column(name="TIME")
 	private String time;
-	
-	
-	
+
 	public ShowTimings() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -48,6 +49,7 @@ public class ShowTimings {
 	public String toString() {
 		return "ShowTimings [id=" + id + ", time=" + time + "]";
 	}
+	
 	
 }
 

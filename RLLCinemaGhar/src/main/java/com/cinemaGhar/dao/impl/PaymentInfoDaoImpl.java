@@ -25,18 +25,9 @@ public class PaymentInfoDaoImpl implements PaymentInfoDao
 	@Override
 	public boolean insert(PaymentInfo payment) 
 	{
-		try {
-
-			getSession().saveOrUpdate(payment);
-			System.out.println("admin " + payment.getTime()+" stored in the DB !!!");
-			return true;
-
-		} catch (Exception e) {
-
-			System.out.println("Exception(ADD): " + e);
-			return false;
-
-		}
+		getSession().saveOrUpdate(payment);
+		System.out.println("admin " + payment.getTime()+" stored in the DB !!!");
+		return true;
 	}
 
 	@Override
@@ -48,7 +39,7 @@ public class PaymentInfoDaoImpl implements PaymentInfoDao
 	}
 
 	@Override
-	public List<PaymentInfo> getPaymentById(String paymentId)
+	public List<PaymentInfo> getPaymentById(Long paymentId)
 	{
 		Query query = getSession().createQuery("From PaymentInfo p where id:=id");
 		query.setParameter("id",paymentId);

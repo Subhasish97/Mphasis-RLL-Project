@@ -2,7 +2,14 @@ package com.cinemaGhar.dao.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -11,6 +18,7 @@ import javax.validation.constraints.NotNull;
 public class Theaters{
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name="THEA_ID")
 	@NotNull
 	private Long id;
@@ -20,14 +28,16 @@ public class Theaters{
 	
 	
 	@Column(name="THEA_S_1")
-	private String t1="02:30 PM";
+	private String t1;
 	
 	@Column(name="THEA_S_2")
-	private String t2="06:00 PM";
+	private String t2;
 	
 		
 	@Column(name="THEA_DTE")
 	private String date;
+	
+	
 
 
 	public Theaters() {
@@ -90,7 +100,7 @@ public class Theaters{
 	public String toString() {
 		return "Theaters [id=" + id + ", name=" + name + ", t1=" + t1 + ", t2=" + t2 + ", date=" + date + "]";
 	}
-
+	
 	
 }
 	

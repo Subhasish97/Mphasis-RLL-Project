@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cinemaGhar.dao.entity.User;
 import com.cinemaGhar.service.UserService;
 
+//**********************************************************
+//***********USER REST CONTROLLER CLASS*********************
+//**********************************************************
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
 public class UserRestController 
@@ -20,18 +23,54 @@ public class UserRestController
 	@Autowired
 	UserService userService;
 	
+	//REST-CONTROLLER METHOD FOR INSERTING THE VALUES TO USER TABLE
+	//*************************************************************
+	
 	@PostMapping("/createUser")
-	public User createAdmin(@RequestBody User user)
+	public User createUser(@RequestBody User user)
 	{
 		userService.insert(user);
 		return user;
 		
 	}
+	
+	//REST-CONTROLLER METHOD FOR SEARCHING THE USER BY USERID
+	//*******************************************************
+	
 	@GetMapping("/userById/{userid}")
-	public List<User> searchUser(@PathVariable("userid") String id)
+	public List<User> searchUser(@PathVariable("userid") Long id)
 	{
 		return userService.getUserById(id);
 		
 	}
+	
+	//REST-CONTROLLER METHOD FOR VALIDATE THE USER BY EMAIL AND PASSWORD
+	//******************************************************************
+	
+	@GetMapping("/userValidate/'{email}'/{pass}")
+	public String userValidate(@PathVariable("email") String email,
+								@PathVariable("pass") String pwd)
+	{
+		String userName=userService.getUserEmail(email);
+		String password=userService.getUserPassword(email);
+		if(userName!=null)
+		{
+			if(userName.equals(email) && password.equals(pwd))
+			{
+				System.out.println("Welcome "+userName);
+				System.out.println("Login Successful");
+				return "Welcome"+userName;
+			}
+			else
+			{
+				return "Login UnSuccessful Try Again";
+			}
+		}
+		else
+		{
+			return "Invalid USER";
+		}
 
+	}
+	
 }

@@ -1,10 +1,16 @@
 package com.cinemaGhar.dao.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -13,15 +19,14 @@ import javax.validation.constraints.NotNull;
 @Table(name="user_info")
 public class User{
 
-	
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="USER_ID")
 	@NotNull
-	private String id;
+	private Long id;
 		
-	@Id
+	
 	@Column(name="USER_EMAIL")
-	@NotNull
 	private String email;
 	
 	@Column(name="USER_PWD")
@@ -45,11 +50,22 @@ public class User{
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getId() {
+	public User(Long id, String email, String pwd, String name, String dob, String gender, String date) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.pwd = pwd;
+		this.name = name;
+		this.dob = dob;
+		this.gender = gender;
+		this.date = date;
+	}
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -41,6 +41,13 @@
 			<list>
 				<value>com.cinemaGhar.dao.entity.Admin</value>
 				<value>com.cinemaGhar.dao.entity.User</value>
+				<value>com.cinemaGhar.dao.entity.Movies</value>
+				<value>com.cinemaGhar.dao.entity.PaymentInfo</value>
+				<value>com.cinemaGhar.dao.entity.Seats</value>
+				<value>com.cinemaGhar.dao.entity.ShowTimings</value>
+				<value>com.cinemaGhar.dao.entity.Theaters</value>
+				<value>com.cinemaGhar.dao.entity.BookingDetails</value>
+				<value>com.cinemaGhar.dao.entity.Ticket</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -64,6 +71,14 @@
 	<bean id="user" class="com.cinemaGhar.dao.entity.User"/>
 	<bean id="userDao" class="com.cinemaGhar.dao.impl.UserDaoImpl"/>
 	<bean id="userService" class="com.cinemaGhar.service.UserServiceImpl"/>
+	
+	<bean id="movies" class="com.cinemaGhar.dao.entity.Movies"/>
+	<bean id="moviesDao" class="com.cinemaGhar.dao.impl.MoviesDaoImpl"/>
+	<bean id="moviesService" class="com.cinemaGhar.service.MoviesServiceImpl"/>
+	
+	<bean id="ticket" class="com.cinemaGhar.dao.entity.Ticket"/>
+	<bean id="ticketDao" class="com.cinemaGhar.dao.impl.TicketDaoImpl"/>
+	<bean id="ticketService" class="com.cinemaGhar.service.TicketServiceImpl"/>
 
 
 

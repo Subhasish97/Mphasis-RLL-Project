@@ -8,6 +8,6 @@ public interface TheatersDao
 {
 	public boolean insert(Theaters theater);
 	public List<Theaters> getAllTheaters();
-	public List<Theaters> getTheaterById(String theaterId);
+	public List<Theaters> getTheaterById(Long theaterId);
 	
 }

@@ -3,9 +3,14 @@ package com.cinemaGhar.dao.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -14,10 +19,10 @@ import javax.validation.constraints.NotNull;
 public class BookingDetails {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name="BOOK_ID")
 	@NotNull
-	private String id;
+	private Long id;
 	
 	@Column(name="BOOK_DATE")
 	private String date;
@@ -25,43 +30,64 @@ public class BookingDetails {
 	@Column(name="BOOK_TIME")
 	private String time;
 	
-	@Column(name="BOOK_AMT")
-	private String amount;
-	
-	@Column(name="BOOK_T_CNT")
-	private String count;
-	
-	@Column(name="BOOK_S_DTE")
-	private String showDate;
-	
-	@Column(name="BOOK_S_TME")
-	private String showTime;
-	
-	@Column(name="MOVIE")
-	private String movie;
-	
+//	@Column(name="BOOK_AMT")
+//	private String amount;
+//	
+//	@Column(name="BOOK_T_CNT")
+//	private String count;
+//	
+//	@Column(name="BOOK_S_DTE")
+//	private String showDate;
+//	
+//	@Column(name="BOOK_S_TME")
+//	private String showTime;
+//	
+
 	@Column(name="BOOK_S")
 	private String status;
 	
-	@Column(name="SEATS")
-	private String seats;
+	/*
+	 * @Column(name="SEATS") private String seats;
+	 * 
+	 * @Column(name="USER") private String email;
+	 * 
+	 * @Column(name="THEATER") private String theater;
+	 */
 	
-	@Column(name="USER")
-	private String email;
+	@ManyToOne(fetch=FetchType.EAGER) 
+	@JoinColumn(name = "MOVIE_ID")
+	private Movies movies;
 	
-	@Column(name="THEATER")
-	private String theater;
+	@ManyToOne(fetch=FetchType.EAGER) 
+	@JoinColumn(name = "SEAT_ID")
+	private Seats seat;
+	
+	@ManyToOne(fetch=FetchType.EAGER) 
+	@JoinColumn(name = "TIME_ID")
+	private ShowTimings showTimings;
+	
+	@ManyToOne(fetch=FetchType.EAGER) 
+	@JoinColumn(name = "USER_ID")
+	private User user;
+	
+	@ManyToOne(fetch=FetchType.EAGER) 
+	@JoinColumn(name = "THEA_ID")
+	private Theaters theaters;
+	
+	@ManyToOne(fetch=FetchType.EAGER) 
+	@JoinColumn(name = "PAY_ID")
+	private PaymentInfo paymentInfo;
 
 	public BookingDetails() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -81,46 +107,6 @@ public class BookingDetails {
 		this.time = time;
 	}
 
-	public String getAmount() {
-		return amount;
-	}
-
-	public void setAmount(String amount) {
-		this.amount = amount;
-	}
-
-	public String getCount() {
-		return count;
-	}
-
-	public void setCount(String count) {
-		this.count = count;
-	}
-
-	public String getShowDate() {
-		return showDate;
-	}
-
-	public void setShowDate(String showDate) {
-		this.showDate = showDate;
-	}
-
-	public String getShowTime() {
-		return showTime;
-	}
-
-	public void setShowTime(String showTime) {
-		this.showTime = showTime;
-	}
-
-	public String getMovie() {
-		return movie;
-	}
-
-	public void setMovie(String movie) {
-		this.movie = movie;
-	}
-
 	public String getStatus() {
 		return status;
 	}
@@ -129,37 +115,61 @@ public class BookingDetails {
 		this.status = status;
 	}
 
-	public String getSeats() {
-		return seats;
+	public Movies getMovies() {
+		return movies;
 	}
 
-	public void setSeats(String seats) {
-		this.seats = seats;
+	public void setMovies(Movies movies) {
+		this.movies = movies;
 	}
 
-	public String getEmail() {
-		return email;
+	public Seats getSeat() {
+		return seat;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setSeat(Seats seat) {
+		this.seat = seat;
 	}
 
-	public String getTheater() {
-		return theater;
+	public ShowTimings getShowTimings() {
+		return showTimings;
 	}
 
-	public void setCinema(String theater) {
-		this.theater = theater;
+	public void setShowTimings(ShowTimings showTimings) {
+		this.showTimings = showTimings;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Theaters getTheaters() {
+		return theaters;
+	}
+
+	public void setTheaters(Theaters theaters) {
+		this.theaters = theaters;
+	}
+
+	public PaymentInfo getPaymentInfo() {
+		return paymentInfo;
+	}
+
+	public void setPaymentInfo(PaymentInfo paymentInfo) {
+		this.paymentInfo = paymentInfo;
 	}
 
 	@Override
 	public String toString() {
-		return "BookingDetails [id=" + id + ", date=" + date + ", time=" + time + ", amount=" + amount + ", count="
-				+ count + ", showDate=" + showDate + ", showTime=" + showTime + ", movie=" + movie + ", status="
-				+ status + ", seats=" + seats + ", email=" + email + ", theater=" + theater + "]";
+		return "BookingDetails [id=" + id + ", date=" + date + ", time=" + time + ", status=" + status + ", movies="
+				+ movies + ", seat=" + seat + ", showTimings=" + showTimings + ", user=" + user + ", theaters="
+				+ theaters + ", paymentInfo=" + paymentInfo + "]";
 	}
-	
+
 	
 }
 

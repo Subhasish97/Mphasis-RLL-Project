@@ -26,18 +26,9 @@ public class ShowTimingsDaoImpl implements ShowTimingsDao
 	@Override
 	public boolean insert(ShowTimings show)
 	{
-		try {
-
-			getSession().saveOrUpdate(show);
-			System.out.println("admin " + show.getTime()+" stored in the DB !!!");
-			return true;
-
-		} catch (Exception e) {
-
-			System.out.println("Exception(ADD): " + e);
-			return false;
-
-		}
+		getSession().saveOrUpdate(show);
+		System.out.println("admin " + show.getTime()+" stored in the DB !!!");
+		return true;
 	}
 
 	@Override
@@ -49,7 +40,7 @@ public class ShowTimingsDaoImpl implements ShowTimingsDao
 	}
 
 	@Override
-	public List<ShowTimings> getShowById(String showId) 
+	public List<ShowTimings> getShowById(Long showId) 
 	{
 		Query query = getSession().createQuery("From ShowTimings st where id:=id");
 		query.setParameter("id",showId);

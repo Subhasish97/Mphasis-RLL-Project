@@ -8,6 +8,6 @@ public interface MoviesDao
 {
 	public boolean insert(Movies movie);
 	public List<Movies> getAllMovies();
-	public List<Movies> getMovieById(String movieId);
+	public List<Movies> getMovieById(Long movieId);
 	
 }

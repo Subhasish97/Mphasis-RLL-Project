@@ -8,8 +8,11 @@ public interface UserService {
 	
 	public Boolean insert(User user);
 	public List<User> getAllUsers();
-	public List<User> getUserById( String id);
+	public List<User> getUserById( Long id);
 	public List<User> update(User user);
-	public List<User> delete(String id);
+	public List<User> delete(Long id);
+	public String getUserEmail(String email);
+	public String getUserPassword(String email);
+	
 
 }

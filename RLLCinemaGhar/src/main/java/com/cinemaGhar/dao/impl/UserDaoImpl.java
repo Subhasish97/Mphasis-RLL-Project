@@ -2,7 +2,9 @@ package com.cinemaGhar.dao.impl;
 
 import java.util.List;
 
-import org.hibernate.*;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -17,6 +19,8 @@ public class UserDaoImpl implements UserDao
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	
+
 
 	protected Session getSession() {
 		return (Session)sessionFactory.getCurrentSession();
@@ -28,7 +32,7 @@ public class UserDaoImpl implements UserDao
 		getSession().saveOrUpdate(user);
 		System.out.println("admin " + user.getName()+" stored in the DB !!!");
 		return true;
-		
+
 	}
 
 	@Override
@@ -40,7 +44,7 @@ public class UserDaoImpl implements UserDao
 	}
 
 	@Override
-	public List<User> delete(String userId)
+	public List<User> delete(Long userId)
 	{
 		Query query = getSession().createQuery("delete from User us where id=:id");
 		query.setParameter("id", userId);
@@ -63,14 +67,32 @@ public class UserDaoImpl implements UserDao
 	}
 
 	@Override
-	public List<User> getUserById(String userId)
+	public List<User> getUserById(Long id)
 	{
-		Query query = getSession().createQuery("From User us where id:=id");
-		query.setParameter("id",userId);
+		Query query = getSession().createQuery("From User us where id=:id");
+		query.setParameter("id",id);
 		List<User> userList=query.list();
 		return userList;
-		
+
 	}
 
+	@Override
+	public String getUserEmail(String email)
+	{
+		Query query = getSession().createQuery("Select us.email From User us where email=:email");
+		query.setParameter("email", email);
+		String emailId=(String) query.uniqueResult();
+		return emailId;
+	}
 
+	@Override
+	public String getUserPassword(String email)
+	{
+		Query query = getSession().createQuery("Select us.pwd From User us where email=:email");
+		query.setParameter("email", email);
+		String password=(String) query.uniqueResult();
+		return password;
+	}
+
+	
 }

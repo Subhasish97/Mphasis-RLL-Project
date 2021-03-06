@@ -1,5 +1,6 @@
 package com.cinemaGhar.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -14,48 +15,69 @@ import com.cinemaGhar.dao.entity.Admin;
 
 @Repository
 @EnableTransactionManagement
-public class AdminDaoImpl implements AdminDao 
-{
+public class AdminDaoImpl implements AdminDao {
 	@Autowired
 	SessionFactory sessionFactory;
 
 	protected Session getSession() {
-		return (Session)sessionFactory.getCurrentSession();
-	}	
+		return (Session) sessionFactory.getCurrentSession();
+	}
 
 	@Override
-	public boolean insert(Admin admin) 
-	{
-		
+	public boolean insert(Admin admin) {
+
 		getSession().saveOrUpdate(admin);
-		System.out.println("admin " + admin.getName()+" stored in the DB !!!");
+		System.out.println("admin " + admin.getName() + " stored in the DB !!!");
 		return true;
 	}
 
 	@Override
-	public List<Admin> getAdminById(String adminId) 
-	{
+	public List<Admin> getAdminById(Long adminId) {
 		Query query = getSession().createQuery("From Admin where id =:id");
 		query.setParameter("id", adminId);
-		
-		List<Admin> adminList=query.list();
-		if(adminList.isEmpty()) {
+
+		List<Admin> adminList = query.list();
+		if (adminList.isEmpty()) {
 			System.out.println("Admin not Found!!");
 		}
 		return adminList;
 	}
 
 	@Override
-	public List<Admin> getAdminByEmail(String emailId) 
-	{
-		Query query = getSession().createQuery("From Admin where email =:email");
+	public List<Admin> getAdminByEmail(String emailId) {
+		System.out.println(emailId);
+		Query query = getSession().createQuery("From Admin where email=:email");
 		query.setParameter("email", emailId);
-		
-		List<Admin> adminList=query.list();
-		if(adminList.isEmpty()) {
+
+		List<Admin> adminList = query.list();
+		System.out.println(adminList);
+
+		if(adminList.isEmpty())
+		{ 
 			System.out.println("Admin not Found by EMAIL!!");
 		}
+
 		return adminList;
+	}
+	@Override
+	public String getAdminEmail(String email) {
+
+		Query query = getSession().createQuery("Select ad.email From Admin ad where email=:email");
+		query.setParameter("email", email);
+		String emailId=(String) query.uniqueResult();
+		return emailId;
+
+	}
+
+	@Override
+	public String getAdminPassword(String email)
+	{
+		Query query = getSession().createQuery("Select ad.pwd From Admin ad where email=:email");
+		query.setParameter("email", email);
+		String password=(String) query.uniqueResult();
+		return password;
+
+
 	}
 
 }

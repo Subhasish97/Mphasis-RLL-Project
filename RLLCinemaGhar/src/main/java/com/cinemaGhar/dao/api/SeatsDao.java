@@ -8,6 +8,6 @@ public interface SeatsDao
 {
 	public boolean insert(Seats seat);
 	public List<Seats> getAllSeats();
-	public List<Seats> getSeatById(String seatId);
+	public List<Seats> getSeatById(Long seatId);
 
 }

@@ -8,6 +8,6 @@ public interface PaymentInfoDao
 {
 	public boolean insert(PaymentInfo payment);
 	public List<PaymentInfo> getAllPaymentInfo();
-	public List<PaymentInfo> getPaymentById(String paymentId);
+	public List<PaymentInfo> getPaymentById(Long paymentId);
 	
 }

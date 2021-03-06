@@ -25,18 +25,9 @@ public class SeatsDaoImpl implements SeatsDao
 	@Override
 	public boolean insert(Seats seat) 
 	{
-		try {
-
-			getSession().saveOrUpdate(seat);
-			System.out.println("admin " + seat.getTime()+" stored in the DB !!!");
-			return true;
-
-		} catch (Exception e) {
-
-			System.out.println("Exception(ADD): " + e);
-			return false;
-
-		}
+		getSession().saveOrUpdate(seat);
+		System.out.println("admin " + seat.getTime()+" stored in the DB !!!");
+		return true;
 	}
 
 	@Override
@@ -48,7 +39,7 @@ public class SeatsDaoImpl implements SeatsDao
 	}
 
 	@Override
-	public List<Seats> getSeatById(String seatId)
+	public List<Seats> getSeatById(Long seatId)
 	{
 		Query query = getSession().createQuery("From Seats s where id:=id");
 		query.setParameter("id",seatId);
