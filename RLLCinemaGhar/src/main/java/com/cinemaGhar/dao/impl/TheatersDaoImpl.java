@@ -10,6 +10,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.cinemaGhar.dao.api.TheatersDao;
 import com.cinemaGhar.dao.entity.Theaters;
 
+//*****************************************************************************
+//****************THEATERS DAO IMPLEMENTATION CLASS************************
+//*****************************************************************************
 @Repository
 @EnableTransactionManagement
 public class TheatersDaoImpl implements TheatersDao
@@ -17,12 +20,16 @@ public class TheatersDaoImpl implements TheatersDao
 	@Autowired
 	SessionFactory sessionFactory;
 	
+	//CREATING SESSION FACTORY
+	//------------------------
 	protected Session getSession() {
 		return (Session)sessionFactory.getCurrentSession();
 	
 	}
 	
 
+	//METHOD FOR CREATING AND INSERTING TO THEATERS TABLE
+	//------------------------------------------------
 	@Override
 	public boolean insert(Theaters theater) 
 	{
@@ -31,6 +38,8 @@ public class TheatersDaoImpl implements TheatersDao
 		return true;
 	}
 
+	//METHOD FOR RETRIVING ALL THEATERS ROW FROM THEATERS TABLE
+	//-------------------------------------------------------------
 	@Override
 	public List<Theaters> getAllTheaters() 
 	{
@@ -40,6 +49,8 @@ public class TheatersDaoImpl implements TheatersDao
 
 	}
 
+	//METHOD FOR RETRIVING A THEATERS ROW BY THEATERS ID FROM THEATERS TABLE
+	//-----------------------------------------------------------------------
 	@Override
 	public List<Theaters> getTheaterById(Long theaterId) 
 	{

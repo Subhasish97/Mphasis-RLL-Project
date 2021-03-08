@@ -12,6 +12,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.cinemaGhar.dao.api.ShowTimingsDao;
 import com.cinemaGhar.dao.entity.ShowTimings;
 
+//*****************************************************************************
+//****************SHOW-TIMINGS DAO IMPLEMENTATION CLASS************************
+//*****************************************************************************
 @Repository
 @EnableTransactionManagement
 public class ShowTimingsDaoImpl implements ShowTimingsDao
@@ -19,10 +22,14 @@ public class ShowTimingsDaoImpl implements ShowTimingsDao
 	@Autowired
 	SessionFactory sessionFactory;
 
+	//CREATING SESSION FACTORY
+	//------------------------
 	protected Session getSession() {
 		return (Session)sessionFactory.getCurrentSession();
 	}	
 
+	//METHOD FOR CREATING AND INSERTING TO SHOWTIMINGS TABLE
+	//------------------------------------------------------
 	@Override
 	public boolean insert(ShowTimings show)
 	{
@@ -31,6 +38,8 @@ public class ShowTimingsDaoImpl implements ShowTimingsDao
 		return true;
 	}
 
+	//METHOD FOR RETRIVING ALL SHOW-TIMINGS ROW FROM SHOWTIMINGS TABLE
+	//-------------------------------------------------------------
 	@Override
 	public List<ShowTimings> getAllShowTimings() 
 	{
@@ -39,6 +48,8 @@ public class ShowTimingsDaoImpl implements ShowTimingsDao
 		return showList;
 	}
 
+	//METHOD FOR RETRIVING A SHOWTIMINGS ROW BY SHOWTIMING-ID FROM SHOWTIMINGS TABLE
+	//--------------------------------------------------------------------------------
 	@Override
 	public List<ShowTimings> getShowById(Long showId) 
 	{

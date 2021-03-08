@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.cinemaGhar.dao.entity.Admin;
 
+//*************************************************************************
+//********************ADMIN SERVICE INTERFACE******************************
+//*************************************************************************
 public interface AdminService {
  
 	public Boolean insert(Admin admin);

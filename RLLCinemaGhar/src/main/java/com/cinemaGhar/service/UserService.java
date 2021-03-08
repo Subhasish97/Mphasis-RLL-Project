@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.cinemaGhar.dao.entity.User;
 
+//*************************************************************************
+//********************USER SERVICE INTERFACE******************************
+//*************************************************************************
 public interface UserService {
 	
 	public Boolean insert(User user);

@@ -10,6 +10,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.cinemaGhar.dao.api.PaymentInfoDao;
 import com.cinemaGhar.dao.entity.PaymentInfo;
 
+
+//*****************************************************************************
+//****************PAYMENT-INFO DAO IMPLEMENTATION CLASS************************
+//*****************************************************************************
 @Repository
 @EnableTransactionManagement
 public class PaymentInfoDaoImpl implements PaymentInfoDao
@@ -17,11 +21,15 @@ public class PaymentInfoDaoImpl implements PaymentInfoDao
 	@Autowired
 	SessionFactory sessionFactory;
 	
+	//CREATING SESSION FACTORY
+	//------------------------
 	protected Session getSession() {
 		return (Session)sessionFactory.getCurrentSession();
 	
 	}
 
+	//METHOD FOR CREATING AND INSERTING TO PAYMENTS-INFO TABLE
+	//--------------------------------------------------------
 	@Override
 	public boolean insert(PaymentInfo payment) 
 	{
@@ -30,6 +38,8 @@ public class PaymentInfoDaoImpl implements PaymentInfoDao
 		return true;
 	}
 
+	//METHOD FOR RETRIVING ALL PAYMENTS-INFO ROWS FROM PAYMENTS-INFO TABLE
+	//--------------------------------------------------------------------
 	@Override
 	public List<PaymentInfo> getAllPaymentInfo()
 	{
@@ -38,6 +48,8 @@ public class PaymentInfoDaoImpl implements PaymentInfoDao
 		return paymentList;
 	}
 
+	//METHOD FOR RETRIVING A PAYMENTS-INFO ROW BY PAYMENTS-ID FROM PAYMENTS-INFO TABLE
+	//--------------------------------------------------------------------------------
 	@Override
 	public List<PaymentInfo> getPaymentById(Long paymentId)
 	{

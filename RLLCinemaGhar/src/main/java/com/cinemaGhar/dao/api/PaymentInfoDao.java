@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.cinemaGhar.dao.entity.PaymentInfo;
 
+//******************************************************************
+//*******************PAYMENT-INFO DAO LAYER FOR CLIENT*********************
+//******************************************************************
 public interface PaymentInfoDao
 {
 	public boolean insert(PaymentInfo payment);

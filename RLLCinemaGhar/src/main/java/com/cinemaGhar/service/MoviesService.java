@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.cinemaGhar.dao.entity.Movies;
 
+//*************************************************************************
+//********************MOVIES SERVICE INTERFACE******************************
+//*************************************************************************
 public interface MoviesService {
 	
 	public Boolean insert(Movies movie);

@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.cinemaGhar.dao.entity.ShowTimings;
 
+//******************************************************************
+//*******************SHOWTIMINGS LAYER FOR CLIENT*********************
+//******************************************************************
 public interface ShowTimingsDao
 {
 	public boolean insert(ShowTimings show);

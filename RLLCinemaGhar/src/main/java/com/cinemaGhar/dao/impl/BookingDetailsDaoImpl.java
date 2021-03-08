@@ -13,6 +13,9 @@ import com.cinemaGhar.dao.api.BookingDetailsDao;
 import com.cinemaGhar.dao.entity.BookingDetails;
 import com.cinemaGhar.dao.entity.Ticket;
 
+//*****************************************************************************
+//****************BOOKING-DETAILS DAO IMPLEMENTATION CLASS************************
+//*****************************************************************************
 @Repository
 @EnableTransactionManagement
 public class BookingDetailsDaoImpl implements BookingDetailsDao 
@@ -26,19 +29,25 @@ public class BookingDetailsDaoImpl implements BookingDetailsDao
 	@Autowired
 	SessionFactory sessionFactory;
 
+	//CREATING SESSION FACTORY
+	//------------------------
 	protected Session getSession() {
 		return (Session)sessionFactory.getCurrentSession();
 	}
 
+	//METHOD FOR CREATING AND INSERTING TO BOOKING DETAILS TABLE
+	//----------------------------------------------------------
 	@Override
 	public boolean insert(BookingDetails bd)
 	{
 
 		getSession().saveOrUpdate(bd);
-		System.out.println("admin " + bd.getMovies()+" stored in the DB !!!");
+		System.out.println("admin " + bd.getDate()+" stored in the DB !!!");
 		return true;
 	}
 
+	//METHOD FOR RETRIVING ALL  BOOKING DETAILS FROM THE TABLE
+	//----------------------------------------------------------
 	@Override
 	public List<BookingDetails> getAllBookingDetails()
 	{
@@ -47,6 +56,8 @@ public class BookingDetailsDaoImpl implements BookingDetailsDao
 		return bookingDetailsList;
 	}
 
+	//METHOD FOR RETRIVING ALL  BOOKING DETAILS FROM THE TABLE BY USER-ID
+	//-------------------------------------------------------------------
 	@Override
 	public List<BookingDetails> getAllBookingByUser(String email) 
 	{
@@ -61,6 +72,8 @@ public class BookingDetailsDaoImpl implements BookingDetailsDao
 
 	}
 
+	//METHOD FOR RETRIVING ALL  BOOKING DETAILS FROM THE TABLE BY BOOKING-ID
+	//----------------------------------------------------------------------
 	@Override
 	public List<BookingDetails> getBookingDetailById(Long bookingDetailId)
 	{
@@ -75,6 +88,8 @@ public class BookingDetailsDaoImpl implements BookingDetailsDao
 		
 	}
 
+	//METHOD FOR RETRIVING ALL LAST INSERTED ID FROM THE  TICKET TABLE 
+	//-------------------------------------------------------------------
 	@Override
 	public List<Long> getIds() 
 	{
@@ -105,6 +120,8 @@ public class BookingDetailsDaoImpl implements BookingDetailsDao
 		
 	}
 
+	//METHOD FOR CREATING THE TICKETS TABLE AND RETRIVE  FROM THE  TICKET TABLE 
+	//-------------------------------------------------------------------------
 	@Override
 	public List<String> getTicket()
 	{

@@ -12,6 +12,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.cinemaGhar.dao.api.MoviesDao;
 import com.cinemaGhar.dao.entity.Movies;
 
+//*****************************************************************************
+//****************MOVIES DAO IMPLEMENTATION CLASS************************
+//*****************************************************************************
 @Repository
 @EnableTransactionManagement
 public class MoviesDaoImpl implements MoviesDao
@@ -19,11 +22,15 @@ public class MoviesDaoImpl implements MoviesDao
 	@Autowired
 	SessionFactory sessionFactory;
 	
+	//CREATING SESSION FACTORY
+	//------------------------
 	protected Session getSession() {
 		return (Session)sessionFactory.getCurrentSession();
 	
 	}
 
+	//METHOD FOR CREATING AND INSERTING TO MOVIES TABLE
+	//------------------------------------------------
 	@Override
 	public boolean insert(Movies movie) 
 	{
@@ -32,6 +39,8 @@ public class MoviesDaoImpl implements MoviesDao
 		return true;
 	}
 
+	//METHOD FOR RETRIVING ALL MOVIES ROW FROM MOVIE TABLE
+	//-------------------------------------------------------------
 	@Override
 	public List<Movies> getAllMovies() 
 	{
@@ -40,6 +49,8 @@ public class MoviesDaoImpl implements MoviesDao
 		return movieList;
 	}
 
+	//METHOD FOR RETRIVING A MOVIES ROW BY MOVIE ID FROM MOVIE TABLE
+	//-------------------------------------------------------------
 	@Override
 	public List<Movies> getMovieById(Long movieId) 
 	{

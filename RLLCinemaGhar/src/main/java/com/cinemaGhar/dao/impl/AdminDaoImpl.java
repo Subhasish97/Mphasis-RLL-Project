@@ -13,16 +13,23 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.cinemaGhar.dao.api.AdminDao;
 import com.cinemaGhar.dao.entity.Admin;
 
+//*****************************************************************************
+//****************ADMIN DAO IMPLEMENTATION CLASS************************
+//*****************************************************************************
 @Repository
 @EnableTransactionManagement
 public class AdminDaoImpl implements AdminDao {
 	@Autowired
 	SessionFactory sessionFactory;
 
+	//CREATING SESSION FACTORY
+	//------------------------
 	protected Session getSession() {
 		return (Session) sessionFactory.getCurrentSession();
 	}
 
+	//METHOD FOR CREATING AND INSERTING TO ADMIN TABLE
+	//------------------------------------------------
 	@Override
 	public boolean insert(Admin admin) {
 
@@ -31,6 +38,8 @@ public class AdminDaoImpl implements AdminDao {
 		return true;
 	}
 
+	//METHOD FOR RETRIVING A ADMIN ROW BY ADMIN ID FROM ADMIN TABLE
+	//-------------------------------------------------------------
 	@Override
 	public List<Admin> getAdminById(Long adminId) {
 		Query query = getSession().createQuery("From Admin where id =:id");
@@ -43,6 +52,8 @@ public class AdminDaoImpl implements AdminDao {
 		return adminList;
 	}
 
+	//METHOD FOR RETRIVING A ADMIN ROW BY ADMIN EMAIL FROM ADMIN TABLE
+	//----------------------------------------------------------------
 	@Override
 	public List<Admin> getAdminByEmail(String emailId) {
 		System.out.println(emailId);
@@ -59,6 +70,9 @@ public class AdminDaoImpl implements AdminDao {
 
 		return adminList;
 	}
+	
+	//METHOD FOR RETRIVING A ADMIN EMAIL BY EMAIL ID FROM ADMIN TABLE
+	//------------------------------------------------------------------
 	@Override
 	public String getAdminEmail(String email) {
 
@@ -69,6 +83,8 @@ public class AdminDaoImpl implements AdminDao {
 
 	}
 
+	//METHOD FOR RETRIVING A ADMIN PASSWORD BY ADMIN EMAIL ID FROM ADMIN TABLE
+	//------------------------------------------------------------------------
 	@Override
 	public String getAdminPassword(String email)
 	{

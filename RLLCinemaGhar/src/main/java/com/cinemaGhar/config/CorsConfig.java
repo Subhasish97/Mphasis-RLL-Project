@@ -22,6 +22,10 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+
+//**************************************************************
+//-------------CONFIGURATION CLASS FOR REST API ----------------
+//**************************************************************
 @Configuration
 public class CorsConfig {
 

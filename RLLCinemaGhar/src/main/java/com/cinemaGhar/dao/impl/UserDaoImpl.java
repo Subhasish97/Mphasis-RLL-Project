@@ -12,6 +12,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.cinemaGhar.dao.api.UserDao;
 import com.cinemaGhar.dao.entity.User;
 
+//*****************************************************************************
+//****************USER DAO IMPLEMENTATION CLASS************************
+//*****************************************************************************
 @Repository
 @EnableTransactionManagement
 public class UserDaoImpl implements UserDao
@@ -19,13 +22,14 @@ public class UserDaoImpl implements UserDao
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	
-
-
+	//CREATING SESSION FACTORY
+	//------------------------
 	protected Session getSession() {
 		return (Session)sessionFactory.getCurrentSession();
 	}
 
+	//METHOD FOR CREATING AND INSERTING TO USER TABLE
+	//------------------------------------------------
 	@Override
 	public boolean insert(User user)
 	{
@@ -35,6 +39,8 @@ public class UserDaoImpl implements UserDao
 
 	}
 
+	//METHOD FOR RETRIVING ALL USERS ROW FROM USER TABLE
+	//-------------------------------------------------------------
 	@Override
 	public List<User> getAllUser() 
 	{
@@ -43,6 +49,8 @@ public class UserDaoImpl implements UserDao
 		return userList;
 	}
 
+	//METHOD FOR DELETING A USER ROW BY USER-ID FROM USER TABLE
+	//-------------------------------------------------------------
 	@Override
 	public List<User> delete(Long userId)
 	{
@@ -52,6 +60,8 @@ public class UserDaoImpl implements UserDao
 		return getAllUser();
 	}
 
+	//METHOD FOR UPDATING A USER ROW BY USER-ID FROM USER TABLE
+	//-------------------------------------------------------------
 	@Override
 	public List<User> update(User user) 
 	{
@@ -66,6 +76,8 @@ public class UserDaoImpl implements UserDao
 		return getAllUser();
 	}
 
+	//METHOD FOR RETRIVING A USER ROW BY USER ID FROM USER TABLE
+	//-------------------------------------------------------------
 	@Override
 	public List<User> getUserById(Long id)
 	{
@@ -76,6 +88,8 @@ public class UserDaoImpl implements UserDao
 
 	}
 
+	//METHOD FOR RETRIVING THE USER EMAIL-ID BY USER EMAIL FROM USER TABLE
+	//--------------------------------------------------------------------
 	@Override
 	public String getUserEmail(String email)
 	{
@@ -85,6 +99,8 @@ public class UserDaoImpl implements UserDao
 		return emailId;
 	}
 
+	//METHOD FOR RETRIVING THE USER PASSWORD BY USER EMAIL FROM USER TABLE
+	//--------------------------------------------------------------------
 	@Override
 	public String getUserPassword(String email)
 	{

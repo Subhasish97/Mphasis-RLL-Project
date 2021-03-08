@@ -23,6 +23,9 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+//**********************************************************
+//****************PAYMENT-INFO ENTITY CLASS************************
+//**********************************************************
 @Entity
 @Table(name="payment_info")
 public class PaymentInfo {

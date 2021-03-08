@@ -11,6 +11,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+//**********************************************************
+//****************MOVIES ENTITY CLASS************************
+//**********************************************************
 @Entity
 @Table(name="movies")
 public class Movies {

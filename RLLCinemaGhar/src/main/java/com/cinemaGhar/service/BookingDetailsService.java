@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.cinemaGhar.dao.entity.BookingDetails;
 
+//*************************************************************************
+//********************BOOKING-DETAILS SERVICE INTERFACE******************************
+//*************************************************************************
 public interface BookingDetailsService {
 
 	public Boolean insert(BookingDetails bookingDetails) ;

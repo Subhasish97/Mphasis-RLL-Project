@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.cinemaGhar.dao.entity.Seats;
 
+//******************************************************************
+//*******************SEATS DAO LAYER FOR CLIENT*********************
+//******************************************************************
 public interface SeatsDao 
 {
 	public boolean insert(Seats seat);

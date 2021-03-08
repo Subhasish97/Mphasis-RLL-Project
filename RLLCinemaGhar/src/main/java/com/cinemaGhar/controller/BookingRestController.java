@@ -159,5 +159,13 @@ public class BookingRestController
 	{
 		return ticketService.getTicketByNumber(ticketId);
 	}
+	
+	//REST-CONTROLLER METHOD TO GET THE LAST INSERTED TICKET
+	//******************************************************
+	@GetMapping("booking/getLastInsertedTicket")
+	public List<Ticket> getLastInsertedTicket()
+	{
+		return ticketService.getLastInsertedTicket();
+	}
 
 }

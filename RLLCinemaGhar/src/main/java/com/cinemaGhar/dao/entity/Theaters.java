@@ -13,6 +13,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+//**********************************************************
+//****************THEATERS ENTITY CLASS************************
+//**********************************************************
 @Entity
 @Table(name="theaters")
 public class Theaters{

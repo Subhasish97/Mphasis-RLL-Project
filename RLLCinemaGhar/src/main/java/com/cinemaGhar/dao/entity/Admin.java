@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+//**********************************************************
+//****************ADMIN ENTITY CLASS************************
+//**********************************************************
 @Entity
 @Table(name="admin_info")
 public class Admin{

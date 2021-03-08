@@ -86,7 +86,7 @@ public class AdminRestController
 	}
 	
 	//REST-CONTROLLER METHOD FOR VALIDATE THE ADMIN BY EMAIL AND PASSWORD
-	//******************************************************************
+	//*******************************************************************
 	
 	@GetMapping("/adminValidate/'{email}'/{pass}")
 	public String adminValidate(@PathVariable("email") String email,

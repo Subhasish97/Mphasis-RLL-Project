@@ -11,6 +11,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+//**********************************************************
+//****************SHOW-TIMINGS ENTITY CLASS************************
+//**********************************************************
 @Entity
 @Table(name="show_timing")
 public class ShowTimings {

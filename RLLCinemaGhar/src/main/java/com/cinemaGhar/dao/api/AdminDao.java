@@ -1,9 +1,11 @@
 package com.cinemaGhar.dao.api;
 
 import java.util.List;
-
 import com.cinemaGhar.dao.entity.Admin;
 
+//******************************************************************
+//*******************ADMIN DAO LAYER FOR CLIENT*********************
+//******************************************************************
 public interface AdminDao
 {
 	public boolean insert(Admin admin);

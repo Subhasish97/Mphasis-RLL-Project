@@ -34,6 +34,16 @@ public class UserRestController
 		
 	}
 	
+	//REST-CONTROLLER METHOD FOR RETRIVING ALL THE VALUES FROM USER TABLE
+	//*******************************************************************
+	@GetMapping("/getAllUser")
+	public List<User> getAllUser()
+	{
+		
+		return userService.getAllUsers();
+		
+	}
+	
 	//REST-CONTROLLER METHOD FOR SEARCHING THE USER BY USERID
 	//*******************************************************
 	
@@ -41,7 +51,6 @@ public class UserRestController
 	public List<User> searchUser(@PathVariable("userid") Long id)
 	{
 		return userService.getUserById(id);
-		
 	}
 	
 	//REST-CONTROLLER METHOD FOR VALIDATE THE USER BY EMAIL AND PASSWORD
